@@ -3,7 +3,7 @@ import {Query} from 'react-apollo'
 import Event from "./event";
 import allEventsQuery from '../graphql/all-events-query'
 
-function App() {
+function EventList() {
     return (
         <Query query={allEventsQuery}>
             {
@@ -21,4 +21,4 @@ function App() {
     )
 }
 
-export default App
+export default EventList
