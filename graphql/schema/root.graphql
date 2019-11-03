@@ -2,6 +2,7 @@ type Event {
     id: ID
     title: String
     url: String
+    people: [Person]
 }
 
 type Person {
