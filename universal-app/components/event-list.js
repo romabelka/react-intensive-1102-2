@@ -14,7 +14,7 @@ function EventList() {
                         <div>
                             {data.allEvents.map(event => (
                                 <div key={event.id}>
-                                    <Link href={`/events?id=${event.id}`} as={`/events/${event.id}`}>
+                                    <Link href={`/events-initial?id=${event.id}`} as={`/events-initial/${event.id}`}>
                                         <a>
                                             {event.title}
                                         </a>
