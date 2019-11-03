@@ -1,6 +1,6 @@
 import React from 'react'
 import {Query} from 'react-apollo'
-import Event from "./event";
+import Link from 'next/link'
 import allEventsQuery from '../graphql/all-events-query'
 
 function EventList() {
@@ -12,7 +12,15 @@ function EventList() {
 
                     return (
                         <div>
-                            {data.allEvents.map(event => <Event key={event.id} event={event} />)}
+                            {data.allEvents.map(event => (
+                                <div key={event.id}>
+                                    <Link href={`/events?id=${event.id}`} as={`/events/${event.id}`}>
+                                        <a>
+                                            {event.title}
+                                        </a>
+                                    </Link>
+                                </div>
+                            ))}
                         </div>
                     )
                 }
