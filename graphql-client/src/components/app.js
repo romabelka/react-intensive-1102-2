@@ -1,19 +1,11 @@
 import React from 'react'
 import {Query} from 'react-apollo'
-import gql from 'graphql-tag'
 import Event from "./event";
-
-const query = gql`
-    query {
-        allEvents {
-            id title
-        }
-    }
-`
+import allEventsQuery from '../graphql/all-events-query'
 
 function App() {
     return (
-        <Query query={query}>
+        <Query query={allEventsQuery}>
             {
                 ({ data, loading }) => {
                     if (loading || !data) return <h1>Loading...</h1>
