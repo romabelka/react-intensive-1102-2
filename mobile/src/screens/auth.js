@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import {View, Text, TextInput, StyleSheet, Button} from 'react-native'
 import Hello from '../components/hello'
+import {observer} from 'mobx-react'
+import authStore from '../stores/auth'
+import PasswordValidation from "../components/password-validation";
 
+@observer
 class AuthScreen extends Component {
     static propTypes = {
 
@@ -11,13 +15,6 @@ class AuthScreen extends Component {
         title: 'Auth'
     }
 
-    state = {
-        email: '',
-        password: ''
-    }
-
-    handleEmailChange = email => this.setState({ email })
-    handlePasswordChange = password => this.setState({ password })
     handleSubmit = () => this.props.navigation.navigate('event-list')
 
     render() {
@@ -29,15 +26,16 @@ class AuthScreen extends Component {
                 <Hello />
                 <View>
                     <Text>Email:</Text>
-                    <TextInput value={this.state.email} onChangeText={this.handleEmailChange} />
+                    <TextInput value={authStore.email} onChangeText={authStore.setEmail} />
                 </View>
                 <View>
                     <Text>Password:</Text>
-                    <TextInput value={this.state.password}
-                               onChangeText={this.handlePasswordChange}
+                    <TextInput value={authStore.password}
+                               onChangeText={authStore.setPassword}
                                secureTextEntry
                     />
                 </View>
+                <PasswordValidation/>
                 <Button onPress={this.handleSubmit} title="Sign In"/>
             </View>
         )
