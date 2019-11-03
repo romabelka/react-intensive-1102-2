@@ -7,6 +7,10 @@ class AuthScreen extends Component {
 
     };
 
+    static navigationOptions = {
+        title: 'Auth'
+    }
+
     state = {
         email: '',
         password: ''
@@ -14,12 +18,14 @@ class AuthScreen extends Component {
 
     handleEmailChange = email => this.setState({ email })
     handlePasswordChange = password => this.setState({ password })
-    handleSubmit = () => console.log(this.state)
+    handleSubmit = () => this.props.navigation.navigate('event-list')
 
     render() {
         return (
             <View>
-                <Text>Sign In</Text>
+                <Text style={[styles.heading, styles.sizing]}>
+                    Sign In
+                </Text>
                 <Hello />
                 <View>
                     <Text>Email:</Text>
@@ -39,6 +45,12 @@ class AuthScreen extends Component {
 }
 
 const styles = StyleSheet.create({
+    heading: {
+        color: 'red'
+    },
+    sizing: {
+        fontSize: 20
+    }
 })
 
 export default AuthScreen
