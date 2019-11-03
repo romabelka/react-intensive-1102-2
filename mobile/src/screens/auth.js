@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import {View, Text, TextInput, StyleSheet, Button} from 'react-native'
 import Hello from '../components/hello'
 import {observer} from 'mobx-react'
-import authStore from '../stores/auth'
 import PasswordValidation from "../components/password-validation";
+import authStore from '../stores/auth'
 
 @observer
 class AuthScreen extends Component {

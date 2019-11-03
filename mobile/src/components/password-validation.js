@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {View, Text, StyleSheet} from 'react-native'
-import authStore from '../stores/auth'
 import {observer} from "mobx-react";
+import authStore from '../stores/auth'
 
 @observer
 class PasswordValidation extends Component {
@@ -10,7 +10,6 @@ class PasswordValidation extends Component {
     };
 
     render() {
-        console.log('---', 'rendering PasswordValidation')
         return (
             <View>
                 <Text>
