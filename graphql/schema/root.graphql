@@ -1,0 +1,14 @@
+type Event {
+    id: ID
+    title: String
+    url: String
+}
+
+type Person {
+    id: ID
+    firstName: String
+}
+
+type Query {
+    allEvents: [Event]
+}
