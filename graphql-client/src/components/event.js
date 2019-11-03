@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { Query } from 'react-apollo'
 import eventQuery from '../graphql/event-query'
+import EventTitleForm from "./event-title-form";
 
 function Event({ event }) {
     const [isOpen, setOpen] = useState(false)
@@ -24,6 +25,8 @@ function getBody(event) {
 
                     return (
                         <div>
+                            <h5>Current Title: {data.event.title}</h5>
+                            <EventTitleForm event={event}/>
                             <a href={data.event.url}>{data.event.url}</a>
                             <p>
                                 {data.event.people.map(person => person.firstName).join('; ')}

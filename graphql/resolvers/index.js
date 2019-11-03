@@ -6,9 +6,19 @@ module.exports = {
         allEvents: () => new Promise(resolve => setTimeout(
             () => resolve(Object.values(events))
         , 500)),
-        event: (_, { id }) => new Promise(resolve => setTimeout(
+        event: (_, { id }, context) => new Promise(resolve => setTimeout(
             () => resolve(events[id])
         , 500)),
+    },
+    Mutation: {
+        eventTitle: (_, {title, id }) => new Promise(resolve => setTimeout(
+            () => {
+                const event = events[id]
+                event.title = title
+
+                resolve(event)
+            }
+            , 500))
     },
     Person: {
         id: ({ _id }) => _id,
